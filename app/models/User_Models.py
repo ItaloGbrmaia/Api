@@ -10,6 +10,3 @@ class User(models.Model):
     old = models.IntegerField()
     phone = models.CharField(max_length=24)
     
-    
-    
-    
