@@ -33,4 +33,9 @@ Rodando o projeto:
 
 ```python manage.py runserver```
 
-# Api
+Comando para criar as migrations
+
+```python3 manage.py makemigrations```
+
+```python3 manage.py migrate```
+
