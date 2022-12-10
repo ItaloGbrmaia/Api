@@ -10,3 +10,5 @@ class User(models.Model):
     old = models.IntegerField()
     phone = models.CharField(max_length=24)
     
+    def __str__(self):
+        return self.first_name
