@@ -1,3 +1,28 @@
+
+from django.contrib import admin
+from django.urls import path, include
+
+# from rest_framework import routers
+# from app.api.viewsets import UserViewSet
+
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from app.urls import user_urls
+# route = routers.DefaultRouter()
+# route.register(r'User', UserViewSet, basename="User")
+# from rest_framework import permissions
+# from drf_yasg.views import get_schema_view
+# from drf_yasg import openapi
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    # path('', include(route.urls)),
+    path('', include(user_urls)),
+    path('token/', TokenObtainPairView.as_view()),
+    path('token/refresh/', TokenRefreshView.as_view()),
+    
+]
+
+
 """library URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -13,25 +38,3 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
-
-from rest_framework import routers
-
-from app.api.viewsets import UserViewSet
-
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-
-
-route = routers.DefaultRouter()
-
-route.register(r'User', UserViewSet, basename="User")
-
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include(route.urls)),
-    path('token/', TokenObtainPairView.as_view()),
-    path('token/refresh/', TokenRefreshView.as_view()),
-    
-]
